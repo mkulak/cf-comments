@@ -1,6 +1,9 @@
 name = "cf-comments"
-main = "src/index.ts"
+main = "build/js/packages/cf-comments/kotlin/cf-comments.js"
 compatibility_date = "2022-11-27"
+
+[vars]
+API_TOKEN = "example_dev_token"
 
 [[ d1_databases ]]
 binding = "DB" # i.e. available in your Worker on env.DB
