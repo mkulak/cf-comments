@@ -10,5 +10,6 @@ import kotlin.js.Promise
 
 external class Hono {
     fun get(path: String, f: (dynamic) -> Promise<Any>)
+    fun post(path: String, f: (dynamic) -> Promise<Any>)
     fun dispatch(request: Request, ctx: ExecutionContext?, env: Env): Promise<Response>
 }

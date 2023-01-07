@@ -5,7 +5,7 @@ POST http://0.0.0.0:8787/api/posts/blah/comments
 Content-Type: application/json
 
 {
-  "author": "Misha", "body": "This is my first comment"
+  "author": "Pasha", "body": "Some comment"
 }
 
 ###
