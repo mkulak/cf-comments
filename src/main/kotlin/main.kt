@@ -1,16 +1,13 @@
-import kotlinx.coroutines.GlobalScope
+import hono.Hono
 import kotlinx.coroutines.await
-import kotlinx.coroutines.promise
 import org.w3c.fetch.Request
 import org.w3c.fetch.Response
-import org.w3c.fetch.ResponseInit
 import kotlin.js.Promise
-import hono.Hono
 
 val app = Hono().apply {
     get("/api/posts/:slug/comments") { c ->
         promise {
-            val slug = c.req.param().slug
+            val slug = c.req.param("slug")
             val promise: Promise<dynamic> = c.env.DB.prepare("select * from comments where post_slug = ?").bind(slug).all()
             val res = promise.await()
             c.json(res.results)
@@ -18,7 +15,7 @@ val app = Hono().apply {
     }
     post("/api/posts/:slug/comments") { c ->
         promise {
-            val slug = c.req.param().slug
+            val slug = c.req.param("slug")
             val jsonPromise: Promise<dynamic> = c.req.json()
             val json = jsonPromise.await()
             val author = json.author
@@ -43,7 +40,6 @@ val app = Hono().apply {
                 c.status(500)
                 return@promise c.text("Something went wrong")
             }
-//            c.text("slug: $slug, author: $author, body: $body")
         }
     }
 }
@@ -53,16 +49,6 @@ val app = Hono().apply {
 @JsExport
 fun fetch(request: Request, env: Env, ctx: ExecutionContext?): Promise<Response> {
     return app.dispatch(request, ctx, env)
-//    return GlobalScope.promise {
-//        val headers: dynamic = object {}
-//        headers["content-type"] = "text/plain"
-//        val promise: Promise<Any> = env.DB.prepare("select * from comments where post_slug = ?").bind("blah").all()
-//        val res = promise.await()
-//        Response(
-//            "Kotlin Worker hello world ${JSON.stringify(res)}",
-//            ResponseInit(headers = headers)
-//        )
-//    }
 }
 
 external interface Env {
