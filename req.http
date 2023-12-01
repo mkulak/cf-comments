@@ -9,6 +9,9 @@ Content-Type: application/json
 }
 
 ###
+GET https://cf-comments.kleshney.workers.dev
+
+###
 GET https://cf-comments.kleshney.workers.dev/api/posts/blah/comments
 
 ###
@@ -16,5 +19,5 @@ POST https://cf-comments.kleshney.workers.dev/api/posts/blah/comments
 Content-Type: application/json
 
 {
-  "author": "anonymous", "body": "Does it even work?"
+  "author": "absolutely new", "body": "this is new comment"
 }

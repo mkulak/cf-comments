@@ -5,6 +5,11 @@ import org.w3c.fetch.Response
 import kotlin.js.Promise
 
 val app = Hono().apply {
+    get("/") { c ->
+        promise {
+            c.html("<h2>Comments API</h2>")
+        }
+    }
     get("/api/posts/:slug/comments") { c ->
         promise {
             val slug = c.req.param("slug")

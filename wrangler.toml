@@ -1,5 +1,5 @@
 name = "cf-comments"
-main = "build/js/packages/cf-comments/kotlin/cf-comments.js"
+main = "build/js/packages/cf-comments/kotlin/worker.js"
 compatibility_date = "2022-11-27"
 
 [vars]
@@ -8,4 +8,4 @@ API_TOKEN = "example_dev_token"
 [[ d1_databases ]]
 binding = "DB" # i.e. available in your Worker on env.DB
 database_name = "comments-db"
-database_id = "91e6081a-50b9-4e4b-a3b3-bd00967f713b"
+database_id = "48b450aa-511c-434e-a967-dbdaac393995"

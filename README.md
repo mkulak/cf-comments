@@ -4,17 +4,25 @@ Original [post](https://blog.cloudflare.com/making-static-sites-dynamic-with-clo
 
 Compile: 
 
-```./gradlew compileProductionExecutableKotlinJs ```
+```shell
+./gradlew buildProd 
+```
 
 Run locally:
 
-```npx wrangler dev --local --persist```
+```shell
+wrangler dev --local --persist
+```
 
 Apply SQL locally:
 
-```npx wrangler d1 execute comments-db --local --file src/schema.sql```
+```shell
+wrangler d1 execute comments-db --local --file src/schema.sql
+```
 
 Deploy:
 
-```npx wrangler publish```
+```shell 
+wrangler deploy
+```
 
