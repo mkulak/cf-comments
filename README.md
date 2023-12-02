@@ -11,7 +11,7 @@ Compile:
 Run locally:
 
 ```shell
-wrangler dev --local --persist
+wrangler dev --local 
 ```
 
 Apply SQL locally:
